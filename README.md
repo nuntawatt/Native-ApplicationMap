@@ -81,15 +81,3 @@ location-map-app/
 
 ---
 
-## 🖼️ Screenshots
-
-### 🗺️ แผนที่
-![Map Screen](./screenshots/map.png)
-
-### ⭐ บันทึกสถานที่
-![Save Place](./screenshots/save-place.png)
-
-### 📂 รายการสถานที่
-![Places List](./screenshots/places-list.png)
-
----
