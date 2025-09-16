@@ -1,24 +1,31 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { Platform } from "react-native";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+    <>
+      <StatusBar style="dark" />
+      <Stack
+        screenOptions={{
+          headerTransparent: true,
+          headerShadowVisible: false,
+          headerLargeTitle: false,
+          headerTitleAlign: "center",
+          headerTitleStyle: { fontSize: 18, fontWeight: "700", color: "#1F2937" },
+          contentStyle: { backgroundColor: "transparent" },
+          animation: Platform.OS === "ios" ? "slide_from_right" : "fade_from_bottom",
+        }}
+      >
+        <Stack.Screen name="index" options={{ title: "แผนที่" }} />
+        <Stack.Screen
+          name="places"
+          options={{
+            title: "สถานที่ที่บันทึก",
+            presentation: "modal",
+          }}
+        />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    </>
   );
 }

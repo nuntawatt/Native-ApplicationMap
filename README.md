@@ -1,50 +1,95 @@
-# Welcome to your Expo app 👋
+# 📍 Location Map App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+แอปพลิเคชันแผนที่สำหรับบันทึกและจัดการตำแหน่งสถานที่  
+สร้างด้วย **React Native + Expo** และใช้ **react-native-maps**  
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- 🔍 แสดงตำแหน่งปัจจุบันของผู้ใช้บนแผนที่
+- ⭐ บันทึกสถานที่ (พร้อมชื่อและคำอธิบาย)
+- 📂 ดูรายการสถานที่ที่บันทึกไว้
+- ✏️ แก้ไข / ลบสถานที่ได้
+- 📌 กดจากรายการเพื่อโฟกัสไปยังตำแหน่งนั้นบนแผนที่
+- 🎨 UI ทันสมัย รองรับทั้ง iOS และ Android
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📦 การติดตั้ง
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### 1. Clone โปรเจ็กต์
 ```bash
-npm run reset-project
+cd location-map-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. ติดตั้ง dependencies
+```bash
+npm install
+```
 
-## Learn more
+### 3. ติดตั้ง Native Modules (Expo)
+```bash
+npx expo install react-native-maps expo-location react-native-safe-area-context @expo/vector-icons
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## ▶️ รันแอป
 
-## Join the community
+### Development Mode
+```bash
+npx expo start
+```
 
-Join our community of developers creating universal apps.
+- กด **i** → เปิด iOS Simulator  
+- กด **a** → เปิด Android Emulator  
+- สแกน QR code → เปิดบน Expo Go
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📂 โครงสร้างไฟล์
+
+```
+location-map-app/
+│
+├── app/                  # ไฟล์หน้าจอหลัก
+│   ├── index.tsx         # หน้าหลัก: แสดงแผนที่ + FABs + Modal
+│   ├── places.tsx        # รายการสถานที่ที่บันทึก
+│   └── _layout.tsx       # Layout ของ expo-router
+│
+├── lib/
+│   ├── places.ts         # Hook จัดการสถานที่
+│   └── types.ts          # Type definitions
+│
+├── assets/              
+├── package.json
+├── app.json              # Expo config
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## 🛠️ เทคโนโลยีที่ใช้
+
+- [Expo](https://expo.dev/) – React Native development platform  
+- [React Native Maps](https://github.com/react-native-maps/react-native-maps) – Map component  
+- [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) – ดึงตำแหน่งปัจจุบัน  
+- [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context) – รองรับพื้นที่ปลอดภัย  
+- [Expo Router](https://expo.github.io/router/docs/) – จัดการ navigation  
+
+---
+
+## 🖼️ Screenshots
+
+### 🗺️ แผนที่
+![Map Screen](./screenshots/map.png)
+
+### ⭐ บันทึกสถานที่
+![Save Place](./screenshots/save-place.png)
+
+### 📂 รายการสถานที่
+![Places List](./screenshots/places-list.png)
+
+---
